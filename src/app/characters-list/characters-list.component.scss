@@ -1,0 +1,62 @@
+.container,
+.nav {
+    position: relative;
+    max-width: 500px;
+}
+
+.container {
+    min-height: 480px;
+    text-align: left;
+    margin: 20px auto 10px auto;
+    padding: 20px;
+    .title {
+        width: 100%;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background-color: #3f51b5;
+        color: #fff;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+    .error,
+    .spinner {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-items: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        width: 100%;
+        height: 480px;
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    }
+    .error {
+        .desc,
+        .msg {
+            width: 100%;
+            height: auto;
+            margin: 10px auto;
+        }
+        .vader-icon{
+            display: block;
+            width: 80%;
+            max-width: 200px;
+            height: auto;
+            margin: auto;
+        }
+        .desc {
+            font-size: 30px;
+            color: #ff0000;
+        }
+        .msg {
+            font-size: 20px;
+        }
+    }
+    .spinner {
+        .content {
+            display: inline-block;
+            margin: auto;
+        }
+    }
+}

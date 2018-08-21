@@ -1,0 +1,7 @@
+<nav class="nav">
+    <button class="btn-action" mat-raised-button color="primary" [disabled]="!pagination.previous || disabled"
+        [routerLink]="['/lista/', pagination.activePage - 1]">Anterior</button>
+    <button class="btn-action" mat-raised-button color="primary" [disabled]="!pagination.next || disabled" [routerLink]="['/lista/', pagination.activePage + 1]">Próxima</button>
+    <div class="info">exibindo {{pagination.showing ? pagination.showing : '--'}} de {{pagination.count ? pagination.count
+        : '--'}} personagens</div>
+</nav>

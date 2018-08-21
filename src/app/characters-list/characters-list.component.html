@@ -1,0 +1,46 @@
+<main class="container">
+    <h1 class="title" [routerLink]="['/']">Star Wars</h1>
+    <div *ngIf="!charactersList; then error;"></div>
+    <div *ngIf="charactersList && charactersList.length; then loaded;"></div>
+    <div *ngIf="charactersList && !charactersList.length; then notLoaded;"></div>
+    <ng-template #error>
+        <div class="error">
+            <h1 class="desc">Ah não!<br> fomos atacados pelo império!</h1>
+            <img class="vader-icon" src="/assets/images/Darth_Vader.svg" alt="Oops!">
+            <h3 class="msg">Mas não desista e tente novamente. <br> que a força esteja com você!</h3>
+        </div>
+
+    </ng-template>
+
+    <ng-template #loaded>
+        <mat-accordion>
+            <mat-expansion-panel class="characters-list" *ngFor="let character of charactersList; let i = index;">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{getCharacterNumber(i) | number:'2.0-0'}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{character.name}}
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <mat-form-field><input matInput readonly="readonly" placeholder="Altura" [value]="character.height"></mat-form-field>
+                <mat-form-field><input matInput readonly="readonly" placeholder="Peso" [value]="character.mass"></mat-form-field>
+                <mat-form-field><input matInput readonly="readonly" placeholder="Cor do cabelo" [value]="character.hair_color"></mat-form-field>
+                <mat-form-field><input matInput readonly="readonly" placeholder="Cor da pele" [value]="character.skin_color"></mat-form-field>
+                <mat-form-field><input matInput readonly="readonly" placeholder="Cor dos olhos" [value]="character.eye_color"></mat-form-field>
+                <mat-form-field><input matInput readonly="readonly" placeholder="Ano de Nascimento" [value]="character.birth_year"></mat-form-field>
+                <mat-form-field><input matInput readonly="readonly" placeholder="Gênero" [value]="character.gender"></mat-form-field>
+
+            </mat-expansion-panel>
+        </mat-accordion>
+    </ng-template>
+
+    <ng-template #notLoaded>
+        <div class="spinner">
+            <mat-spinner class="content"></mat-spinner>
+        </div>
+    </ng-template>
+</main>
+
+<app-navgation *ngIf="charactersList" [pagination]="pagination" [disabled]="!charactersList.length"></app-navgation>
